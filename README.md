@@ -42,7 +42,7 @@ Everything is plain HTML in one file. The structure is:
   line; adding `LinkedIn:` / `GitHub:` / `Portfolio:` prefixes pushes it to three.
 - `.skill` — one row per skill category. Order is intentional:
   **Frontend (Modern) → Frontend (Server-Side) → Backend → Database → Cloud/DevOps →
-  Security/Integration → Practices/AI**. React and TypeScript lead; jQuery, Razor, and
+  Security/Integration → Practices/AI**. React leads; jQuery, Razor, and
   DevExtreme sit in the server-side row so the profile does not read as legacy MVC.
 - `.role` + `.org` + `<ul>` — one block per job.
 - `.proj-block` — one block per project. Vendor Portal is first because it carries the
@@ -70,5 +70,8 @@ Some wording is deliberate and should not drift back:
 - **Zero-downtime deployment** always appears with its mechanism — scheduled off-peak
   windows, pre-tested rollback scripts, post-deployment validation. The claim is only
   credible when the how is stated.
-- **React and TypeScript** appear only on the Vendor Portal. The Enterprise Supply Chain
-  project stays JavaScript/jQuery because that is what it actually used.
+- **React appears only on the Vendor Portal.** The Enterprise Supply Chain project stays
+  JavaScript/jQuery because that is what it actually used.
+- **React is never paired with TypeScript.** The React work was written in plain JavaScript.
+  TypeScript is a genuine skill on its own and stays in the Frontend (Modern) row, but it must
+  not appear in the summary, a project tech line, or an achievement next to React.
