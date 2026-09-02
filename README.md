@@ -10,8 +10,9 @@ React.js, ASP.NET Core, C#.
 
 | File | Purpose |
 |---|---|
-| `Nandhakumar_M_Senior_DotNet_FullStack_Resume_v4.html` | The source. Single self-contained file — HTML plus an inline print stylesheet, no dependencies. |
-| `Nandhakumar_M_Senior_DotNet_FullStack_Resume_v4.pdf` | The built PDF. This is the file to attach to applications. |
+| `Nandhakumar_M_Senior_DotNet_FullStack_Resume_v5.html` | The source. Single self-contained file — HTML plus an inline print stylesheet, no dependencies. |
+| `Nandhakumar_M_Senior_DotNet_FullStack_Resume_v5.pdf` | The built PDF. This is the file to attach to applications. |
+| `..._Resume_v4.html` / `..._Resume_v4.pdf` | The previous build (v5 = v4 plus the full *Open to Relocate* contact line). Kept for the record; do not attach. |
 
 The same PDF is served from the portfolio's "Download Résumé" buttons as
 `Nandhakumar_M_Resume.pdf` — update it there whenever this one changes.
@@ -25,8 +26,8 @@ browser in headless mode produces the PDF:
 # Windows / Edge
 "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" \
   --headless=new --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf="Nandhakumar_M_Senior_DotNet_FullStack_Resume_v4.pdf" \
-  "file:///D:/Resume/Nandhakumar_M_Senior_DotNet_FullStack_Resume_v4.html"
+  --print-to-pdf="Nandhakumar_M_Senior_DotNet_FullStack_Resume_v5.pdf" \
+  "file:///D:/Resume%20and%20Jobs%20Application/resume/Nandhakumar_M_Senior_DotNet_FullStack_Resume_v5.html"
 ```
 
 `--no-pdf-header-footer` matters — without it Chromium stamps a URL and date onto every page.
@@ -53,8 +54,9 @@ Everything is plain HTML in one file. The structure is:
 The layout is tuned to fill exactly two A4 pages. After editing, rebuild and check:
 
 ```bash
-pdftotext -layout Nandhakumar_M_Senior_DotNet_FullStack_Resume_v4.pdf - | tr -cd '\f' | wc -c
-# prints 1 → 2 pages
+pdftotext -layout Nandhakumar_M_Senior_DotNet_FullStack_Resume_v5.pdf - | tr -cd '\f' | wc -c
+# prints the page count (some pdftotext builds emit a trailing form feed — 2 pages prints 1 or 2;
+# cross-check with: grep -a -o "/Count [0-9]*" <pdf> | head -1)
 ```
 
 If it spills to three, trim bullets rather than shrinking `body { font-size }` below 9pt.
